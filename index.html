@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+    <title>Slider Test</title>
+    <meta name="description" content="Slider carousel implementation by Joe Canas.">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="assets/css/flickity.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Configure carousel to hide page dots, previous/next button sequence indicators and dragging behavior -->
+    <div class="carousel flex-parent" data-flickity='{ "pageDots": false, "prevNextButtons": false, "selectedAttraction": 0.1, "friction": 0.6 }'>
+
+        <div id="card_1" class="card flex-fill-area">
+            <div class="card-top flex-center">
+                <div class="card-step flex-center gradient animate">1</div>
+                <div class="card-title animate">Gradients</div>
+                <div class="card-info animate">Start, end, angle</div>
+            </div>
+
+            <div class="card-bottom gradient flex-center">
+                <i class="material-icons md-light animate">invert_colors</i>
+            </div>
+        </div>
+
+        <div id="card_2" class="card flex-fill-area">
+            <div class="card-top flex-center">
+                <div class="card-step flex-center gradient animate">2</div>
+                <div class="card-title animate">Presets</div>
+                <div class="card-info animate">Manage presets</div>
+            </div>
+
+            <div class="card-bottom gradient flex-center">
+                <i class="material-icons md-light animate">palette</i>
+            </div>
+        </div>
+
+        <div id="card_3" class="card flex-fill-area">
+            <div class="card-top flex-center">
+                <div class="card-step flex-center gradient animate">3</div>
+                <div class="card-title animate">Colors</div>
+                <div class="card-info animate">Pick any color</div>
+            </div>
+
+            <div class="card-bottom gradient flex-center">
+                <i class="material-icons md-light animate">colorize</i>
+            </div>
+        </div>
+
+    </div>
+
+<script src="assets/js/flickity.pkgd.2.0.11.js"></script>
+<script src="assets/js/animation.js"></script>
+    
+</body>
+</html>

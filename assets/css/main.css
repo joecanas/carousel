@@ -1,0 +1,304 @@
+/* Slider CSS file: R/GA frontend-tests */
+@charset "UTF-8";
+
+html, 
+body {
+    height: 100%;
+    margin: 0;
+    min-height: 400px;
+    min-width: 320px;
+    padding: 0;
+    width: 100%;
+}
+
+body {
+    background: #ffffff;
+    color: #000000;
+    font-family: Roboto, Arial,Helvetica,sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    overflow: hidden;
+}
+
+/* Animation */
+@keyframes slideInLeft {
+  from {
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Default direction for animations on page load;
+   changed via JavaScript when swipe/drag direction changes */
+.card.is-selected .slide-in-right {
+    animation-name: slideInRight;
+}
+
+.card.is-selected .slide-in-left {
+    animation-name: slideInLeft;
+}
+
+.card.is-selected .animate {
+    animation-timing-function: ease;
+}
+
+.card.is-selected .card-step {
+    animation-duration: .2s;
+}
+
+.card.is-selected .card-title {
+    animation-duration: .3s;
+}
+
+.card.is-selected .card-info {
+    animation-duration: .4s;
+}
+
+.card.is-selected .card-bottom .material-icons {
+    animation-duration: .4s;
+}
+
+/* Material Design icon */
+/* Usage: specify icon name within <i> tag:
+   <i class="material-icons md-light">invert_colors</i> */
+
+/* Suggested sizes for general use, per MD tutorial
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+*/
+
+/* Implemented size for icons on this page */
+.material-icons {
+    font-size: 10em;
+}
+
+/* Rules for using icons as black on a light background.
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+*/
+
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light {
+    color: rgba(255, 255, 255, 1);
+}
+
+/* Not used here, but maybe some day... (and we'll know where to find it)
+.material-icons.md-light.md-inactive {
+    color: rgba(255, 255, 255, 0.3);
+}
+*/
+
+/* Flexbox styles for improved vertical/horizontal centering and resize behavior */
+.flex-parent {
+    align-content: stretch;
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    overflow: hidden;
+}
+
+.flex-fill-area {
+    align-content: stretch;
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+}
+
+.flex-center {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Flickity carousel */
+.carousel {
+    height: 100%;
+    margin: 0;
+    width: 100%;
+    /* Prevent vertical scrolling on horizontal swipe actions */
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;    
+}
+
+.flickity-prev-next-button {
+    display: none;
+}
+
+.card {
+    background: #ffffff;
+    height: 100%;
+    width: 100%;
+}
+
+.card-top {
+    height: 50%;
+    padding: 0 0 25px 0;
+    text-align: center;
+    width: 100%;
+}
+
+.card-bottom {
+    height: 50%;
+    padding: 25px 0 0 0;
+    text-align: center;
+    width: 100%;
+}
+
+.card-step {
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 3em;
+    font-weight: 600;
+    height: 45px;
+    width: 45px;
+}
+
+/* Draw border around step number, using darker color from applicable gradient 
+   (The grainy video example seemed to show borders, but it was hard to tell. 
+    I prefer the cleaner look without a border around the step numbers.) */
+#card_1 .card-step {
+    border: 1px solid #0000cd;
+}
+
+#card_2 .card-step {
+    border: 1px solid #48d1cc;
+}
+
+#card_3 .card-step {
+    border: 1px solid #eac520;
+}
+
+.card-title {
+    color: #000000;
+    font-family: arial,helvetica,sans-serif;
+    font-size: 3em;
+    font-weight: 800;
+    margin: 15px 0 5px 0;
+}
+
+.card-info {
+    color: #a3a3a3;
+    font-size: 1.85em;
+    font-weight: 300;
+}
+
+#card_1 .gradient {
+    background: linear-gradient(to right, #0000cd, #48d1cc);
+}
+
+#card_2 .gradient {
+    background: linear-gradient(to right, #48d1cc, #eac520);
+}
+
+#card_3 .gradient {
+    background: linear-gradient(to right, #eac520, #cc0000);
+}
+
+/* Mobile */
+@media only screen and (max-width: 400px) {
+    html {
+        position: fixed; /* Prevent vertical scroll-wobbles when swiping horizontally */
+    }
+    body {
+        font-size: 14px;
+        position: fixed; /* Prevent vertical scroll-wobbles when swiping horizontally */
+    }
+
+    .material-icons {
+        font-size: 9em;
+    }
+    
+    .card-step {
+        font-size: 1.9em;
+        height: 45px;
+        width: 45px;
+    }
+    
+    .card-title {
+        margin: 15px 0 5px 0;
+    }
+}
+
+/* Tablet */
+@media only screen and (min-width: 401px) and (max-width: 960px) {
+    body {
+        font-size: 16px;
+    }
+
+    .material-icons {
+        font-size: 9.5em;
+    }
+    
+    .card-step {
+        font-size: 2em;
+        height: 55px;
+        width: 55px;
+    }
+    
+    .card-title {
+        margin: 25px 0 10px 0;
+    }
+}
+
+/* Desktop */
+@media only screen and (min-width: 961px) and (max-width: 1600px) {
+    body {
+        font-size: 20px;
+    }
+
+    .material-icons {
+        font-size: 10.5em;
+    }
+    
+    .card-step {
+        font-size: 2.2em;
+        height: 75px;
+        width: 75px;
+    }
+    
+    .card-title {
+        margin: 35px 0 15px 0;
+    }
+}
+
+/* Large display */
+@media only screen and (min-width: 1601px) {
+    body {
+        font-size: 24px;
+    }
+
+    .material-icons {
+        font-size: 11.5em;
+    }
+    
+    .card-step {
+        font-size: 2.8em;
+        height: 100px;
+        width: 100px;
+    }
+    
+    .card-title {
+        margin: 45px 0 20px 0;
+    }
+}
